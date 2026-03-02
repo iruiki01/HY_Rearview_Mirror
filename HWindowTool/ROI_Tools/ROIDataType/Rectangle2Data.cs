@@ -1,0 +1,80 @@
+﻿using HalconDotNet;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace hWindowTool
+{
+    /// <summary>
+    /// 矩形2数据
+    /// </summary>
+    [Serializable]
+    public class Rectangle2Data : HWROI
+    {
+        /// <summary>
+        /// 矩形2数据构造函数
+        /// </summary>
+        /// <param name="rOIData">ROI数据</param>
+        public Rectangle2Data(ROIData rOIData) : base(rOIData) { }
+
+        /// <summary>
+        /// 中心Row
+        /// </summary>
+        public double Row = 50;
+
+        /// <summary>
+        /// 中心Column
+        /// </summary>
+        public double Column = 50;
+
+        /// <summary>
+        /// 弧度(注意:不是角度)
+        /// </summary>
+        public double Phi;
+
+        /// <summary>
+        /// 长度1
+        /// </summary>
+        public double Length1 = 50;
+
+        /// <summary>
+        /// 长度2
+        /// </summary>
+        public double Length2 = 50;
+
+        /// <summary>
+        /// 角点1坐标
+        /// </summary>
+        public double AngleRow1, AngleColumn1;
+
+        /// <summary>
+        /// 角点2坐标
+        /// </summary>
+        public double AngleRow2, AngleColumn2;
+
+        /// <summary>
+        /// 角点3坐标
+        /// </summary>
+        public double AngleRow3, AngleColumn3;
+
+        /// <summary>
+        /// 角点4坐标
+        /// </summary>
+        public double AngleRow4, AngleColumn4;
+
+        #region 获取ROI角点
+        /// <summary>
+        /// 获取ROI角度
+        /// </summary>
+        /// <param name="row">角点roe</param>
+        /// <param name="col">角点col</param>
+        public void GetROIAnglePoint(out HTuple row, out HTuple col)
+        {
+            row = new HTuple(AngleRow1, AngleRow2, AngleRow3, AngleRow4);
+            col = new HTuple(AngleColumn1, AngleColumn2, AngleColumn3, AngleColumn4);
+        }
+        #endregion
+    }
+}

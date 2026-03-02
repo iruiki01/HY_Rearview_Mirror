@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B378216-CFC1-486C-80E7-094A81DCE092}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>hWindowTool</RootNamespace>
+    <AssemblyName>HWindowTool</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\HY_Rearview_Mirror\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Debug\HWindowTool.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\exe_Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>..\..\exe_Release\HWindowTool.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>bin\Debug\HWindowTool.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>..\..\exe_Release\HWindowTool.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="halcondotnet">
+      <HintPath>..\HY_Rearview_Mirror\bin\Dll\halcondotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FullScreenDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FullScreenDisplay.Designer.cs">
+      <DependentUpon>FullScreenDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HWindow.Designer.cs">
+      <DependentUpon>HWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HWndAction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ROI_Tools\InstanceROI.cs" />
+    <Compile Include="ROI_Tools\InstanceROIAction.cs" />
+    <Compile Include="ROI_Tools\IROIAction.cs" />
+    <Compile Include="ROI_Tools\HWROI.cs" />
+    <Compile Include="ROI_Tools\ROIAction\CircleAction.cs" />
+    <Compile Include="ROI_Tools\ROIAction\FanShapedRingAction.cs" />
+    <Compile Include="ROI_Tools\ROIAction\EllipseAction.cs" />
+    <Compile Include="ROI_Tools\ROIAction\RingAction.cs" />
+    <Compile Include="ROI_Tools\ROIAction\CircleArcAction.cs" />
+    <Compile Include="ROI_Tools\ROIAction\Line1Action.cs" />
+    <Compile Include="ROI_Tools\ROIAction\Line2Action.cs" />
+    <Compile Include="ROI_Tools\ROIAction\PointAction.cs" />
+    <Compile Include="ROI_Tools\ROIAction\Rectangle1Action.cs" />
+    <Compile Include="ROI_Tools\ROIAction\Rectangle2Action.cs" />
+    <Compile Include="ROI_Tools\ROIDataType\FanShapedRingData.cs" />
+    <Compile Include="ROI_Tools\ROIDataType\EllipseData.cs" />
+    <Compile Include="ROI_Tools\ROIDataType\RingData.cs" />
+    <Compile Include="ROI_Tools\ROIDataType\Line2Data.cs" />
+    <Compile Include="ROI_Tools\ROIDataType\CircleArcData.cs" />
+    <Compile Include="ROI_Tools\ROIDataType\CircleData.cs" />
+    <Compile Include="ROI_Tools\ROIDataType\Line1Data.cs" />
+    <Compile Include="ROI_Tools\ROIDataType\PointData.cs" />
+    <Compile Include="ROI_Tools\ROIData.cs" />
+    <Compile Include="ROI_Tools\ROIDataType\Rectangle1Data.cs" />
+    <Compile Include="ROI_Tools\ROIDataType\Rectangle2Data.cs" />
+    <Compile Include="Smear_Tools\ISmearAction.cs" />
+    <Compile Include="Smear_Tools\SmearAction.cs" />
+    <Compile Include="Smear_Tools\SmearData.cs" />
+    <Compile Include="HWTools.cs" />
+    <Compile Include="HObjData.cs" />
+    <Compile Include="HTextData.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FullScreenDisplay.resx">
+      <DependentUpon>FullScreenDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HWindow.resx">
+      <DependentUpon>HWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

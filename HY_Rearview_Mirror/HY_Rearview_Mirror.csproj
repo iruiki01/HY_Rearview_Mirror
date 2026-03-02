@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{04F194C8-B4F2-4312-B2C1-6982434C3ED7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HY_Rearview_Mirror</RootNamespace>
+    <AssemblyName>HY_Rearview_Mirror</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>dua3m-r5hl8-001.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ChOpticsDriver">
+      <HintPath>bin\Dll\ChOpticsDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="CyUSB, Version=1.2.3.0, Culture=neutral, PublicKeyToken=01f1d2b6c851ae92, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Dll\CyUSB.dll</HintPath>
+    </Reference>
+    <Reference Include="halcondotnet, Version=23.5.0.0, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Dll\halcondotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="HslCommunication, Version=9.6.2.0, Culture=neutral, PublicKeyToken=cdb2261fa039ed67" />
+    <Reference Include="Ivi.Visa.Interop, Version=7.2.0.0, Culture=neutral, PublicKeyToken=a128c98f1d7717c1, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Dll\Ivi.Visa.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MvCameraControl.Net, Version=3.4.0.1, Culture=neutral, PublicKeyToken=52fddfb3f94be800, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Dll\MvCameraControl.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SunnyUI">
+      <HintPath>bin\Dll\SunnyUI.dll</HintPath>
+    </Reference>
+    <Reference Include="SunnyUI.Common">
+      <HintPath>bin\Dll\SunnyUI.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppConfig.cs" />
+    <Compile Include="CAN\CanTool.cs" />
+    <Compile Include="CAN\LinTool.cs" />
+    <Compile Include="CAN\usb2can.cs" />
+    <Compile Include="CAN\usb2lin.cs" />
+    <Compile Include="CAN\usb_device.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="Controls\DataGridComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DataGridComboBox.Designer.cs">
+      <DependentUpon>DataGridComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\LogForm.Designer.cs">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ParameterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ParameterForm.Designer.cs">
+      <DependentUpon>ParameterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PublicDataTool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PublicDataTool.Designer.cs">
+      <DependentUpon>PublicDataTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\rfidTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\rfidTestForm.Designer.cs">
+      <DependentUpon>rfidTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SplashForm .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\SplashForm .Designer.cs">
+      <DependentUpon>SplashForm .cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Functions\Colors\RGB.cs" />
+    <Compile Include="Functions\Colors\RgbColorMatcher.cs" />
+    <Compile Include="Functions\EK2000ProHelper.cs" />
+    <Compile Include="Functions\RFIDHelper.cs" />
+    <Compile Include="Functions\Use_EK2000Pro.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Functions\CameraController.cs" />
+    <Compile Include="Functions\GYCamTool.cs" />
+    <Compile Include="Functions\HalconShapeMatcher.cs" />
+    <Compile Include="Functions\IdleMonitor.cs" />
+    <Compile Include="Functions\ImageTool.cs" />
+    <Compile Include="Functions\IT6722ATool.cs" />
+    <Compile Include="Functions\MuraDefectDetector.cs" />
+    <Compile Include="Functions\RobustSerialPort.cs" />
+    <Compile Include="Functions\SaveImage.cs" />
+    <Compile Include="global.cs" />
+    <Compile Include="GYCam_Mini.cs" />
+    <Compile Include="InterfaceTool\IPlugin.cs" />
+    <Compile Include="InterfaceTool\RequireCanAttribute.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeManager\TypeFactory.cs" />
+    <Compile Include="User\Can1Fun.cs" />
+    <Compile Include="User\Can1FunSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\Can1FunSetForm.Designer.cs">
+      <DependentUpon>Can1FunSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\CheckDefectFun.cs" />
+    <Compile Include="User\CheckDefectSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\CheckDefectSetForm.Designer.cs">
+      <DependentUpon>CheckDefectSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\CheckLight.cs" />
+    <Compile Include="User\CheckLightSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\CheckLightSetForm.Designer.cs">
+      <DependentUpon>CheckLightSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\CheckRGB.cs" />
+    <Compile Include="User\CheckRGBForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\CheckRGBForm.Designer.cs">
+      <DependentUpon>CheckRGBForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\DelayFun.cs" />
+    <Compile Include="User\DelayFunSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\DelayFunSetForm.Designer.cs">
+      <DependentUpon>DelayFunSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\EK2000ProForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\EK2000ProForm.Designer.cs">
+      <DependentUpon>EK2000ProForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\EK2000ProFun.cs" />
+    <Compile Include="User\GlareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\GlareForm.Designer.cs">
+      <DependentUpon>GlareForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\GlareFun.cs" />
+    <Compile Include="User\GW_MultimeterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\GW_MultimeterForm.Designer.cs">
+      <DependentUpon>GW_MultimeterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\GW_MultimeterFun.cs" />
+    <Compile Include="User\GYCamFun.cs" />
+    <Compile Include="User\GYCamSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\GYCamSetForm.Designer.cs">
+      <DependentUpon>GYCamSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\IT6722AForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\IT6722AForm.Designer.cs">
+      <DependentUpon>IT6722AForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\IT6722AFun.cs" />
+    <Compile Include="User\MuraFun.cs" />
+    <Compile Include="User\MuraSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\MuraSetForm.Designer.cs">
+      <DependentUpon>MuraSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\PhotosensitiveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\PhotosensitiveForm.Designer.cs">
+      <DependentUpon>PhotosensitiveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\PhotosensitiveFun.cs" />
+    <Compile Include="User\UartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UartForm.Designer.cs">
+      <DependentUpon>UartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\UartFun.cs" />
+    <Compile Include="User\TemplateMatchingFun.cs" />
+    <Compile Include="User\TemplateMatchingSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\TemplateMatchingSetForm.Designer.cs">
+      <DependentUpon>TemplateMatchingSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\ZhongshengForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\ZhongshengForm.Designer.cs">
+      <DependentUpon>ZhongshengForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\ZhongshengFun.cs" />
+    <Compile Include="WorkThread.cs" />
+    <EmbeddedResource Include="Controls\LogForm.resx">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ParameterForm.resx">
+      <DependentUpon>ParameterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PublicDataTool.resx">
+      <DependentUpon>PublicDataTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\rfidTestForm.resx">
+      <DependentUpon>rfidTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SplashForm .resx">
+      <DependentUpon>SplashForm .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="User\Can1FunSetForm.resx">
+      <DependentUpon>Can1FunSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\CheckDefectSetForm.resx">
+      <DependentUpon>CheckDefectSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\CheckLightSetForm.resx">
+      <DependentUpon>CheckLightSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\CheckRGBForm.resx">
+      <DependentUpon>CheckRGBForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\DelayFunSetForm.resx">
+      <DependentUpon>DelayFunSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\EK2000ProForm.resx">
+      <DependentUpon>EK2000ProForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\GlareForm.resx">
+      <DependentUpon>GlareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\GW_MultimeterForm.resx">
+      <DependentUpon>GW_MultimeterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\GYCamSetForm.resx">
+      <DependentUpon>GYCamSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\IT6722AForm.resx">
+      <DependentUpon>IT6722AForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\MuraSetForm.resx">
+      <DependentUpon>MuraSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\PhotosensitiveForm.resx">
+      <DependentUpon>PhotosensitiveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UartForm.resx">
+      <DependentUpon>UartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\TemplateMatchingSetForm.resx">
+      <DependentUpon>TemplateMatchingSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\ZhongshengForm.resx">
+      <DependentUpon>ZhongshengForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dua3m-r5hl8-001.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Helper\Helper.csproj">
+      <Project>{2de02cce-de3b-46a9-8bee-11a01aca5271}</Project>
+      <Name>Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HWindowTool\HWindow_Tool.csproj">
+      <Project>{8B378216-CFC1-486C-80E7-094A81DCE092}</Project>
+      <Name>HWindow_Tool</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
